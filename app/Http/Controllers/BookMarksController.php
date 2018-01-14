@@ -21,11 +21,12 @@ class BookMarksController extends Controller
     public function store(Request $request){
         $this->validate($request, [
             'name' => 'required',
-            'url' => 'required'
+            'url' => 'required',
+            'description' => 'required'
     ]);
 
     // Create Bookmark
-    $bookmark = new Bookmark;
+    $bookmark = new BookMark;
     $bookmark->name = $request->input('name');
     $bookmark->url = $request->input('url');
     $bookmark->description = $request->input('description');
@@ -34,6 +35,13 @@ class BookMarksController extends Controller
     $bookmark->save();
 
     return redirect('/home')->with('success', 'Bookmark Added');
+    }
+
+    public function delete($id){
+        $bookmark = BookMark::find($id);
+        $bookmark->delete();
+    
+        return;
     }
 }
     
