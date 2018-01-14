@@ -18,3 +18,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'BookMarksController@index')->name('home');
+Route::post('store',  'BookMarksController@store')->name('bookmarks.store');
