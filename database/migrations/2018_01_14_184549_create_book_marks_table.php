@@ -18,7 +18,7 @@ class CreateBookMarksTable extends Migration
             $table->integer('user_id');
             $table->string('name');
             $table->string('url');
-            $table->string('desciption');
+            $table->string('description');
             $table->timestamps();
         });
     }
